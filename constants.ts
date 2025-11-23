@@ -3,7 +3,7 @@ import { IconData, WindowState } from './types';
 
 export const INITIAL_WINDOWS: WindowState[] = [
     { id: 'about', title: 'Sobre Mí', isOpen: true, zIndex: 1, position: { x: 50, y: 50 }, size: { width: 500, height: 420 } },
-    { id: 'projects', title: 'Proyectos', isOpen: false, zIndex: 0, position: { x: 100, y: 80 }, size: { width: 500, height: 350 } },
+    { id: 'projects', title: 'Proyectos', isOpen: false, zIndex: 0, position: { x: 80, y: 60 }, size: { width: 720, height: 480 } },
     { id: 'contact', title: 'Contacto', isOpen: false, zIndex: 0, position: { x: 150, y: 150 }, size: { width: 420, height: 450 } },
     { id: 'resume', title: 'Curriculum.txt', isOpen: false, zIndex: 0, position: { x: 200, y: 60 }, size: { width: 450, height: 500 } },
     { id: 'gallery', title: 'MacPaint', isOpen: false, zIndex: 0, position: { x: 300, y: 100 }, size: { width: 600, height: 450 } },
