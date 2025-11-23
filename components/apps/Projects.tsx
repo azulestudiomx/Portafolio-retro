@@ -12,12 +12,12 @@ interface ProjectsProps {
 const PROJECTS: ProjectData[] = [
     {
         id: 1,
-        name: "Azul Estudio Web",
+        name: "Portafolio Azul Estudio Web",
         date: "28 Oct, 2023",
         stack: "React, Tailwind, Retro",
         description: "El sitio oficial de Azul Estudio. Un viaje nostálgico al Mac OS 8 con tecnología moderna.",
         imageUrl: "https://picsum.photos/seed/retro/300/200",
-        url: "https://azulestudio.com"
+        url: "https://portafolio-retro.onrender.com/"
     },
     {
         id: 2,
