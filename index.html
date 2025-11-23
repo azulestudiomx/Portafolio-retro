@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portafolio Mac OS 8</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+      /* Custom Retro Scrollbar */
+      ::-webkit-scrollbar {
+        width: 16px;
+        height: 16px;
+        background: #dfdfdf;
+        border-left: 1px solid #808080;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c0c0c0;
+        border-top: 1px solid #fff;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+      }
+      ::-webkit-scrollbar-button {
+        background: #c0c0c0;
+        width: 16px;
+        height: 16px;
+        border-top: 1px solid #fff;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        display: block;
+      }
+      /* Disable font smoothing for retro crispness */
+      body {
+        -webkit-font-smoothing: none;
+        -moz-osx-font-smoothing: grayscale;
+        cursor: default;
+      }
+      .font-chicago {
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        letter-spacing: -0.5px;
+      }
+      
+      /* --- Dynamic Retro Water Background --- */
+      .pattern-water {
+        background-color: #3b5998; /* Deep Mac OS Blue */
+        background-image: 
+          /* Layer 1: The Pixel Grid (Static) */
+          linear-gradient(0deg, rgba(0,0,0,0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px),
+          /* Layer 2: Diagonal Water Flow (Animated) */
+          repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 20px,
+            transparent 20px,
+            transparent 40px
+          ),
+          /* Layer 3: Subtle Noise/Dither */
+          radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 20%);
+          
+        background-size: 
+          4px 4px,      /* Grid Size */
+          4px 4px,      /* Grid Size */
+          200% 200%,    /* Flow Size */
+          8px 8px;      /* Dither Size */
+          
+        animation: waterFlow 15s linear infinite;
+      }
+
+      @keyframes waterFlow {
+        0% {
+          background-position: 
+            0 0, 
+            0 0, 
+            0 0,
+            0 0;
+        }
+        100% {
+          background-position: 
+            0 0, 
+            0 0, 
+            -100px 50px, /* Move the diagonal stripes */
+            0 0;
+        }
+      }
+
+      /* Mac OS 8 Title Bar Lines */
+      .title-bar-lines {
+        background-image: linear-gradient(
+          to bottom,
+          #fff 0%,
+          #fff 50%,
+          #999 50%,
+          #999 100%
+        );
+        background-size: 100% 2px;
+      }
+      /* Shake Animation */
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-4px); }
+        75% { transform: translateX(4px); }
+      }
+      .animate-shake {
+        animation: shake 0.2s ease-in-out;
+      }
+
+      /* Window Appear & Activity Animations */
+      @keyframes win-open {
+        0% { opacity: 0; transform: scale(0.95); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      .animate-win-open {
+        animation: win-open 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      @keyframes win-focus {
+        0% { filter: brightness(1.2); }
+        100% { filter: brightness(1); }
+      }
+      .animate-win-focus {
+        animation: win-focus 0.2s ease-out;
+      }
+
+      /* --- RETRO IMMERSION STYLES --- */
+
+      /* Dynamic Cursor: Watch */
+      .cursor-watch {
+        cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAO0lEQVQ4jWNgGArEzTCo/2fAD/6jgsFYG4w0wMAwClA0wMAwCkaDAcPACx5w5o+aMBoMGAYeYGAk1wAAyEQq7/l21lYAAAAASUVORK5CYII='), wait !important;
+      }
+      .cursor-watch * {
+        cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAO0lEQVQ4jWNgGArEzTCo/2fAD/6jgsFYG4w0wMAwClA0wMAwCkaDAcPACx5w5o+aMBoMGAYeYGAk1wAAyEQq7/l21lYAAAAASUVORK5CYII='), wait !important;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "jspdf": "https://esm.sh/jspdf@2.5.1"
+  }
+}
+</script>
+</head>
+  <body class="overflow-hidden select-none">
+    <div id="root"></div>
+  </body>
+</html>
