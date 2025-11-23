@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Menubar } from './components/os/Menubar';
 import { DesktopIcon } from './components/os/DesktopIcon';
 import { Window } from './components/os/Window';
@@ -14,6 +14,7 @@ import { MusicPlayer } from './components/apps/MusicPlayer';
 import { Terminal } from './components/apps/Terminal';
 import { Appearance } from './components/apps/Appearance';
 import { BootScreen } from './components/os/BootScreen';
+import { Screensaver } from './components/os/Screensaver';
 import { INITIAL_WINDOWS, DESKTOP_ICONS } from './constants';
 import { WindowId, WindowState, IconData } from './types';
 import { playClickSound } from './utils/audio';
@@ -30,6 +31,10 @@ const App: React.FC = () => {
   
   // Wallpaper state (pattern-water by default, or an image URL)
   const [wallpaper, setWallpaper] = useState<string | null>(null);
+
+  // Screensaver State
+  const [isScreensaverActive, setIsScreensaverActive] = useState(false);
+  const screensaverTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Global Sound Listener for clicks
   useEffect(() => {
@@ -60,6 +65,41 @@ const App: React.FC = () => {
       }
     };
   }, [wallpaper]);
+
+  // --- IDLE / SCREENSAVER LOGIC ---
+  const resetIdleTimer = useCallback(() => {
+      // Clear existing timer
+      if (screensaverTimerRef.current) clearTimeout(screensaverTimerRef.current);
+      
+      // If screensaver is active, interaction kills it
+      if (isScreensaverActive) {
+          setIsScreensaverActive(false);
+      }
+
+      // Start new timer only if logged in and system is on
+      if (isLoggedIn && !isPoweredOff) {
+          screensaverTimerRef.current = setTimeout(() => {
+              setIsScreensaverActive(true);
+          }, 120000); // 120,000 ms = 2 minutes
+      }
+  }, [isScreensaverActive, isLoggedIn, isPoweredOff]);
+
+  useEffect(() => {
+      const events = ['mousemove', 'mousedown', 'keydown', 'click', 'scroll', 'touchstart'];
+      const handler = () => resetIdleTimer();
+      
+      // Attach listeners
+      events.forEach(e => window.addEventListener(e, handler));
+      
+      // Init timer
+      resetIdleTimer();
+
+      return () => {
+          events.forEach(e => window.removeEventListener(e, handler));
+          if (screensaverTimerRef.current) clearTimeout(screensaverTimerRef.current);
+      };
+  }, [resetIdleTimer]);
+
 
   // Fake loading effect when opening apps (Timeout based)
   const triggerLoading = () => {
@@ -219,11 +259,13 @@ const App: React.FC = () => {
         className={`w-screen h-screen overflow-hidden relative font-sans ${isLoading ? 'cursor-watch' : 'cursor-default'} ${!wallpaper ? 'pattern-water' : ''}`}
         style={wallpaper ? { backgroundImage: `url(${wallpaper})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
     >
-      
+      {/* SCREENSAVER OVERLAY */}
+      {isScreensaverActive && <Screensaver onExit={() => setIsScreensaverActive(false)} />}
+
       <Menubar 
         onOpenWindow={handleOpenWindow} 
         onSetWallpaper={handleSetWallpaper} 
-        onShutdown={handleShutdown}
+        onShutdown={handleShutdown} 
         onRestart={handleRestart}
       />
       
