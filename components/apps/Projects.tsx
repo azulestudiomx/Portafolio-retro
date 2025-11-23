@@ -26,7 +26,7 @@ const PROJECTS: ProjectData[] = [
         stack: "Node.js, MongoDB, Express, React",
         description: "Sistema de gestión para la empresa Emplacados Campeche.",
         imageUrl: "https://picsum.photos/seed/api/300/200",
-        url: "https://sistema-emplacados-campeche.onrender.com/login"
+        url: "https://sistema-emplacados-campeche.onrender.com/"
     },
     {
         id: 3,
