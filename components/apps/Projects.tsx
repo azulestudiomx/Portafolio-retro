@@ -30,21 +30,21 @@ const PROJECTS: ProjectData[] = [
     },
     {
         id: 3,
-        name: "Dashboard Analítica",
-        date: "10 Jul, 2023",
-        stack: "D3.js, Vue",
-        description: "Visualización de datos complejos para fintech, enfocado en rendimiento y UX.",
+        name: "Sistema de Gestión de Citas Médicas-Expedientes",
+        date: "10 Jul, 2024",
+        stack: "php, mysql, bootstrap",
+        description: "Gestión de citas médicas y expedientes electrónica.",
         imageUrl: "https://picsum.photos/seed/data/300/200",
-        url: "https://example.com"
+        url: "https://joaquinbenitezlandero.cloud/version2/expedientes-medicos"
     },
     {
         id: 4,
-        name: "App Móvil Salud",
-        date: "20 Jun, 2023",
-        stack: "React Native",
-        description: "Aplicación de seguimiento de hábitos saludables con integración a wearables.",
+        name: "Web Maquena",
+        date: "20 Jun, 2024",
+        stack: "Wordpress, Elementor",
+        description: "Web de la empresa Maquena Arquitectura.",
         imageUrl: "https://picsum.photos/seed/game/300/200",
-        url: "https://example.com"
+        url: "https://maquena.com.mx"
     },
 ];
 
