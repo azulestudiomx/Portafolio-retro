@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 export const IconFolder: React.FC<{ className?: string }> = ({ className }) => (
@@ -122,5 +123,14 @@ export const IconMacFace: React.FC<{ className?: string }> = ({ className }) => 
         
         <circle cx="10.5" cy="10.5" r="1.5" fill="black"/>
         <circle cx="21.5" cy="10.5" r="1.5" fill="black"/>
+    </svg>
+);
+
+export const IconAzulLogo: React.FC<{ className?: string }> = ({ className }) => (
+    <svg viewBox="0 0 32 32" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="28" height="28" fill="#3b5998" stroke="black" strokeWidth="2"/>
+        <rect x="4" y="4" width="24" height="24" fill="white" stroke="black" strokeWidth="1"/>
+        <path d="M16 6L24 24H20L18 19H14L12 24H8L16 6Z" fill="#3b5998"/>
+        <path d="M16 11L13 17H19L16 11Z" fill="white"/>
     </svg>
 );

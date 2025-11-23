@@ -7,9 +7,10 @@ interface MenubarProps {
     onOpenWindow?: (id: WindowId) => void;
     onSetWallpaper?: (url: string) => void;
     onShutdown?: () => void;
+    onRestart?: () => void;
 }
 
-export const Menubar: React.FC<MenubarProps> = ({ onOpenWindow, onSetWallpaper, onShutdown }) => {
+export const Menubar: React.FC<MenubarProps> = ({ onOpenWindow, onSetWallpaper, onShutdown, onRestart }) => {
   const [time, setTime] = useState(new Date());
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -114,7 +115,7 @@ export const Menubar: React.FC<MenubarProps> = ({ onOpenWindow, onSetWallpaper, 
                     </div>
                     <div 
                         className="px-4 py-1 hover:bg-black hover:text-white cursor-pointer text-sm font-bold"
-                        onClick={() => handleAction(() => window.location.reload())}
+                        onClick={() => handleAction(() => onRestart?.())}
                     >
                         Reiniciar...
                     </div>

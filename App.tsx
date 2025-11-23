@@ -153,6 +153,11 @@ const App: React.FC = () => {
       setIsPoweredOff(true);
   };
 
+  const handleRestart = () => {
+      setIsLoggedIn(false); // Go back to Boot Screen
+      setWindows(INITIAL_WINDOWS); // Reset Windows
+  };
+
   const handlePowerOn = () => {
       setIsPoweredOff(false);
       setIsLoggedIn(false); // Reset to boot screen sequence
@@ -219,6 +224,7 @@ const App: React.FC = () => {
         onOpenWindow={handleOpenWindow} 
         onSetWallpaper={handleSetWallpaper} 
         onShutdown={handleShutdown}
+        onRestart={handleRestart}
       />
       
       {/* Desktop Area */}

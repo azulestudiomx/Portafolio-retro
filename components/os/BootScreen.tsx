@@ -1,5 +1,6 @@
+
 import React, { useEffect, useState } from 'react';
-import { IconMacFace } from '../icons/OsIcons';
+import { IconAzulLogo } from '../icons/OsIcons';
 import { playStartupSound } from '../../utils/audio';
 
 interface BootScreenProps {
@@ -43,7 +44,7 @@ export const BootScreen: React.FC<BootScreenProps> = ({ onLoginComplete }) => {
 
           {/* Main Logo Area */}
           <div className="flex items-center space-x-4 mb-8 scale-125">
-              <IconMacFace className="w-16 h-16" />
+              <IconAzulLogo className="w-16 h-16" />
               <div className="flex flex-col">
                   <span className="text-4xl font-bold tracking-tighter">Azul Estudio</span>
                   <span className="text-xs tracking-widest text-gray-500 font-bold uppercase text-right">System 8.0</span>
