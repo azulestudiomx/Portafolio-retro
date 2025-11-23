@@ -13,6 +13,7 @@ import { Browser } from './components/apps/Browser';
 import { MusicPlayer } from './components/apps/MusicPlayer';
 import { Terminal } from './components/apps/Terminal';
 import { Appearance } from './components/apps/Appearance';
+import { AiAssistant } from './components/apps/AiAssistant';
 import { BootScreen } from './components/os/BootScreen';
 import { Screensaver } from './components/os/Screensaver';
 import { INITIAL_WINDOWS, DESKTOP_ICONS } from './constants';
@@ -219,6 +220,8 @@ const App: React.FC = () => {
         return <Terminal onOpenWindow={handleOpenWindow} />;
       case 'appearance':
         return <Appearance onSetWallpaper={handleSetWallpaper} />;
+      case 'ai':
+        return <AiAssistant />;
       default: return null;
     }
   };

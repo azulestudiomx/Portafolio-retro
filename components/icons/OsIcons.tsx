@@ -46,14 +46,11 @@ export const IconPic: React.FC<{ className?: string }> = ({ className }) => (
 
 export const IconBrush: React.FC<{ className?: string }> = ({ className }) => (
   <svg viewBox="0 0 32 32" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-     {/* Paint Bucket / Brush Hybrid for Application Icon */}
      <rect x="6" y="8" width="20" height="16" fill="#f0f0f0" stroke="black" strokeWidth="2"/>
      <path d="M6 12H26" stroke="black" strokeWidth="2"/>
-     {/* Brush */}
      <path d="M20 20L28 28" stroke="black" strokeWidth="3" strokeLinecap="round"/>
      <path d="M18 18L22 22" stroke="#8b4513" strokeWidth="4"/>
      <circle cx="18" cy="18" r="3" fill="black" />
-     {/* Paint splotch */}
      <path d="M10 18C10 18 8 22 10 24C12 26 14 24 14 22" fill="#ff0000" stroke="black" strokeWidth="1"/>
   </svg>
 );
@@ -62,12 +59,9 @@ export const IconCD: React.FC<{ className?: string }> = ({ className }) => (
   <svg viewBox="0 0 32 32" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
      <circle cx="16" cy="16" r="14" fill="#e0e0e0" stroke="black" strokeWidth="1.5" />
      <circle cx="16" cy="16" r="4" fill="white" stroke="black" strokeWidth="1" />
-     
-     {/* Rainbow shine effect */}
      <path d="M16 2 A 14 14 0 0 1 29 11 L 16 16 Z" fill="rgba(255,0,0,0.1)" />
      <path d="M29 11 A 14 14 0 0 1 23 28 L 16 16 Z" fill="rgba(0,0,255,0.1)" />
      <path d="M23 28 A 14 14 0 0 1 4 21 L 16 16 Z" fill="rgba(0,255,0,0.1)" />
-     
      <circle cx="16" cy="16" r="1.5" fill="black" opacity="0.1" />
   </svg>
 );
@@ -84,16 +78,27 @@ export const IconSettings: React.FC<{ className?: string }> = ({ className }) =>
     <svg viewBox="0 0 32 32" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="2" width="28" height="28" fill="#e0e0e0" stroke="black" strokeWidth="2"/>
         <rect x="4" y="4" width="24" height="24" fill="#f0f0f0" stroke="black" strokeWidth="1" />
-        
-        {/* Sliders */}
         <line x1="10" y1="6" x2="10" y2="26" stroke="#808080" strokeWidth="2"/>
         <rect x="8" y="10" width="4" height="6" fill="black" stroke="none"/>
-        
         <line x1="16" y1="6" x2="16" y2="26" stroke="#808080" strokeWidth="2"/>
         <rect x="14" y="18" width="4" height="6" fill="black" stroke="none"/>
-
         <line x1="22" y1="6" x2="22" y2="26" stroke="#808080" strokeWidth="2"/>
         <rect x="20" y="8" width="4" height="6" fill="black" stroke="none"/>
+    </svg>
+);
+
+export const IconMagic: React.FC<{ className?: string }> = ({ className }) => (
+    <svg viewBox="0 0 32 32" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Wand Handle */}
+        <path d="M6 26L14 18" stroke="#8b4513" strokeWidth="3" strokeLinecap="round"/>
+        {/* Wand Tip */}
+        <path d="M14 18L18 14" stroke="white" strokeWidth="3" strokeLinecap="round"/>
+        <path d="M14 18L18 14" stroke="black" strokeWidth="1" strokeLinecap="round"/>
+        
+        {/* Stars / Magic Dust */}
+        <path d="M22 6L23 9L26 10L23 11L22 14L21 11L18 10L21 9L22 6Z" fill="#ffff00" stroke="black" strokeWidth="0.5"/>
+        <path d="M28 20L28.5 21.5L30 22L28.5 22.5L28 24L27.5 22.5L26 22L27.5 21.5L28 20Z" fill="#ff00ff" stroke="black" strokeWidth="0.5"/>
+        <path d="M8 8L9 10L11 11L9 12L8 14L7 12L5 11L7 10L8 8Z" fill="#00ffff" stroke="black" strokeWidth="0.5"/>
     </svg>
 );
 
@@ -105,22 +110,14 @@ export const IconApple: React.FC<{ className?: string }> = ({ className }) => (
 
 export const IconMacFace: React.FC<{ className?: string }> = ({ className }) => (
     <svg viewBox="0 0 32 32" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Simplified Finder Face / Mac OS Logo */}
         <path d="M4 4H28V28H4V4Z" fill="#f0f0f0" stroke="black" strokeWidth="2"/>
-        {/* Left Face */}
         <path d="M4 4H16V28H4V4Z" fill="#a0a0ff"/>
-        {/* Right Face */}
         <path d="M16 4H28V28H16V4Z" fill="#a0a0ff"/>
-        
-        {/* Profiles cut out */}
         <path d="M4 4H14V28H4V4Z" fill="#a0a0ff"/> 
         <path d="M18 4H28V28H18V4Z" fill="#a0a0ff"/>
-        
-        {/* Abstracted Faces for Logo */}
         <path d="M9 10C9 10 8 12 9 14C10 16 14 14 14 14V28H18V14C18 14 22 16 23 14C24 12 23 10 23 10" fill="#d4d4d4" stroke="black" strokeWidth="1.5"/>
         <path d="M9 10C9 10 6 10 6 16C6 22 10 24 14 24" fill="none" stroke="black" strokeWidth="1.5"/>
         <path d="M23 10C23 10 26 10 26 16C26 22 22 24 18 24" fill="none" stroke="black" strokeWidth="1.5"/>
-        
         <circle cx="10.5" cy="10.5" r="1.5" fill="black"/>
         <circle cx="21.5" cy="10.5" r="1.5" fill="black"/>
     </svg>
