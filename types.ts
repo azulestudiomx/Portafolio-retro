@@ -1,5 +1,5 @@
 
-export type WindowId = 'about' | 'projects' | 'contact' | 'resume' | 'gallery' | 'browser' | 'music' | 'terminal';
+export type WindowId = 'about' | 'projects' | 'contact' | 'resume' | 'gallery' | 'browser' | 'music' | 'terminal' | 'appearance';
 
 export interface WindowState {
   id: WindowId;
@@ -14,7 +14,7 @@ export interface WindowState {
 export interface IconData {
   id: WindowId;
   title: string;
-  iconType: 'folder' | 'disk' | 'doc' | 'mail' | 'pic' | 'paint' | 'music';
+  iconType: 'folder' | 'disk' | 'doc' | 'mail' | 'pic' | 'paint' | 'music' | 'terminal' | 'settings';
   position: { x: number; y: number };
 }
 

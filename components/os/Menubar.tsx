@@ -6,9 +6,10 @@ import { WindowId } from '../../types';
 interface MenubarProps {
     onOpenWindow?: (id: WindowId) => void;
     onSetWallpaper?: (url: string) => void;
+    onShutdown?: () => void;
 }
 
-export const Menubar: React.FC<MenubarProps> = ({ onOpenWindow, onSetWallpaper }) => {
+export const Menubar: React.FC<MenubarProps> = ({ onOpenWindow, onSetWallpaper, onShutdown }) => {
   const [time, setTime] = useState(new Date());
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -119,7 +120,7 @@ export const Menubar: React.FC<MenubarProps> = ({ onOpenWindow, onSetWallpaper }
                     </div>
                     <div 
                         className="px-4 py-1 hover:bg-black hover:text-white cursor-pointer text-sm font-bold"
-                        onClick={() => handleAction(() => window.close())}
+                        onClick={() => handleAction(() => onShutdown?.())}
                     >
                         Apagar
                     </div>

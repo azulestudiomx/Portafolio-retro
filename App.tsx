@@ -12,6 +12,7 @@ import { Gallery } from './components/apps/Gallery';
 import { Browser } from './components/apps/Browser';
 import { MusicPlayer } from './components/apps/MusicPlayer';
 import { Terminal } from './components/apps/Terminal';
+import { Appearance } from './components/apps/Appearance';
 import { BootScreen } from './components/os/BootScreen';
 import { INITIAL_WINDOWS, DESKTOP_ICONS } from './constants';
 import { WindowId, WindowState, IconData } from './types';
@@ -19,6 +20,7 @@ import { playClickSound } from './utils/audio';
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isPoweredOff, setIsPoweredOff] = useState(false); // State for simulated shutdown
   const [windows, setWindows] = useState<WindowState[]>(INITIAL_WINDOWS);
   const [icons, setIcons] = useState<IconData[]>(DESKTOP_ICONS);
   const [activeZIndex, setActiveZIndex] = useState(10);
@@ -32,11 +34,13 @@ const App: React.FC = () => {
   // Global Sound Listener for clicks
   useEffect(() => {
       const handleGlobalClick = () => {
-          playClickSound();
+          if (!isPoweredOff) {
+             playClickSound();
+          }
       };
       window.addEventListener('mousedown', handleGlobalClick);
       return () => window.removeEventListener('mousedown', handleGlobalClick);
-  }, []);
+  }, [isPoweredOff]);
 
   // Update Music Icon position on initial render to bottom right to simulate trash location
   useEffect(() => {
@@ -47,6 +51,15 @@ const App: React.FC = () => {
          return icon;
      }));
   }, []);
+
+  // Cleanup wallpaper object URL to avoid memory leaks
+  useEffect(() => {
+    return () => {
+      if (wallpaper && wallpaper.startsWith('blob:')) {
+        URL.revokeObjectURL(wallpaper);
+      }
+    };
+  }, [wallpaper]);
 
   // Fake loading effect when opening apps (Timeout based)
   const triggerLoading = () => {
@@ -132,8 +145,18 @@ const App: React.FC = () => {
       );
   }, []);
 
-  const handleSetWallpaper = (url: string) => {
+  const handleSetWallpaper = (url: string | null) => {
       setWallpaper(url);
+  };
+
+  const handleShutdown = () => {
+      setIsPoweredOff(true);
+  };
+
+  const handlePowerOn = () => {
+      setIsPoweredOff(false);
+      setIsLoggedIn(false); // Reset to boot screen sequence
+      setWindows(INITIAL_WINDOWS); // Reset window positions/states
   };
 
   const renderWindowContent = (window: WindowState) => {
@@ -149,21 +172,54 @@ const App: React.FC = () => {
         return <Browser initialUrl={window.contentProps?.initialUrl} onSetLoading={setIsLoading} />;
       case 'terminal': 
         return <Terminal onOpenWindow={handleOpenWindow} />;
+      case 'appearance':
+        return <Appearance onSetWallpaper={handleSetWallpaper} />;
       default: return null;
     }
   };
 
+  // --- POWERED OFF STATE ---
+  if (isPoweredOff) {
+      return (
+          <div className="w-screen h-screen bg-black flex items-center justify-center relative overflow-hidden">
+              {/* Retro Monitor Glare Effect */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent to-white opacity-5 pointer-events-none rounded-[100px]"></div>
+              
+              <div className="flex flex-col items-center animate-pulse">
+                  <button 
+                    onClick={handlePowerOn}
+                    className="w-24 h-24 rounded-full bg-[#333] border-4 border-[#111] shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center justify-center active:scale-95 transition-transform group"
+                    title="Encender Sistema"
+                  >
+                      {/* Power Symbol */}
+                      <svg viewBox="0 0 24 24" className="w-12 h-12 text-gray-500 group-hover:text-green-500 transition-colors" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                          <line x1="12" y1="2" x2="12" y2="12"></line>
+                      </svg>
+                  </button>
+                  <span className="mt-4 text-gray-500 font-mono text-xs">Apagado. Presione para iniciar.</span>
+              </div>
+          </div>
+      );
+  }
+
+  // --- BOOT SCREEN STATE ---
   if (!isLoggedIn) {
     return <BootScreen onLoginComplete={() => setIsLoggedIn(true)} />;
   }
 
+  // --- DESKTOP STATE ---
   return (
     <div 
         className={`w-screen h-screen overflow-hidden relative font-sans ${isLoading ? 'cursor-watch' : 'cursor-default'} ${!wallpaper ? 'pattern-water' : ''}`}
         style={wallpaper ? { backgroundImage: `url(${wallpaper})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
     >
       
-      <Menubar onOpenWindow={handleOpenWindow} onSetWallpaper={handleSetWallpaper} />
+      <Menubar 
+        onOpenWindow={handleOpenWindow} 
+        onSetWallpaper={handleSetWallpaper} 
+        onShutdown={handleShutdown}
+      />
       
       {/* Desktop Area */}
       <div className="pt-10 h-full w-full relative">

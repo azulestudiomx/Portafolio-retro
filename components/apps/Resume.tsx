@@ -4,6 +4,7 @@ import { jsPDF } from 'jspdf';
 
 export const Resume: React.FC = () => {
   
+  // -- PARA CAMBIAR EL TEXTO DEL PDF, EDITA AQUÍ --
   const handleDownload = () => {
     const doc = new jsPDF();
 
@@ -12,11 +13,11 @@ export const Resume: React.FC = () => {
     
     // Header
     doc.setFontSize(24);
-    doc.text("Juan Pérez", 20, 25);
+    doc.text("Carlos Caceres", 20, 25);
     
     doc.setFontSize(12);
     doc.setFont(undefined, 'italic');
-    doc.text("Ingeniero Frontend Senior", 20, 32);
+    doc.text("Azul Estudio - Developer & Diseñador", 20, 32);
 
     // Separator
     doc.setLineWidth(0.5);
@@ -49,25 +50,24 @@ export const Resume: React.FC = () => {
     };
 
     // --- EXPERIENCE ---
-    addSection("Experiencia");
+    addSection("Experiencia Profesional");
 
     addJob(
-        "Tech Corp Inc.",
-        "1999 - Presente",
+        "Azul Estudio",
+        "2020 - Presente",
         [
-            "Construyendo interfaces escalables con React",
-            "Migración de sistemas legacy a web moderna",
-            "Liderazgo técnico de equipos ágiles"
+            "Fundador y Director Creativo",
+            "Desarrollo de identidades visuales y web apps",
+            "Gestión de proyectos full-cycle"
         ]
     );
 
     addJob(
-        "Soluciones Web Ltd.",
-        "1995 - 1999",
+        "Agencia Digital Global",
+        "2018 - 2020",
         [
-            "Maestro HTML/CSS y diseño de tablas",
-            "Desarrollo de scripts en Perl CGI",
-            "Administración de servidores Linux"
+            "Desarrollador Frontend Senior",
+            "Implementación de Design Systems",
         ]
     );
 
@@ -76,19 +76,20 @@ export const Resume: React.FC = () => {
     addSection("Educación");
 
     doc.setFont(undefined, 'bold');
-    doc.text("Universidad de Ciencias", 20, yPos);
+    doc.text("Universidad Tecnológica", 20, yPos);
     doc.setFont(undefined, 'normal');
-    doc.text("1995", 150, yPos, { align: 'right' });
+    doc.text("2018", 150, yPos, { align: 'right' });
     yPos += 6;
-    doc.text("Lic. Ciencias de la Computación", 25, yPos);
+    doc.text("Ingeniería de Software", 25, yPos);
     
     // Footer
     doc.setFontSize(8);
-    doc.text("Generado automáticamente desde Portafolio Mac OS 8", 105, 280, { align: 'center' });
+    doc.text("Generado desde Azul Estudio OS", 105, 280, { align: 'center' });
 
-    doc.save("CV_JuanPerez.pdf");
+    doc.save("CV_CarlosCaceres.pdf");
   };
 
+  // -- PARA CAMBIAR EL TEXTO VISIBLE EN LA VENTANA, EDITA AQUÍ ABAJO --
   return (
     <div className="h-full flex flex-col bg-white text-black font-mono relative">
        {/* Document Header */}
@@ -97,35 +98,35 @@ export const Resume: React.FC = () => {
        </div>
 
        <div className="p-4 overflow-y-auto text-sm leading-relaxed z-10 flex-1">
-            <h1 className="text-2xl font-bold font-chicago mb-1 border-b-2 border-black pb-1">Juan Pérez</h1>
-            <p className="mb-4 text-xs italic">Ingeniero Frontend Senior</p>
+            <h1 className="text-2xl font-bold font-chicago mb-1 border-b-2 border-black pb-1">Carlos Caceres</h1>
+            <p className="mb-4 text-xs italic">Azul Estudio - Developer & Diseñador</p>
 
-            <h2 className="font-bold font-chicago text-lg mt-4 mb-2">Experiencia</h2>
+            <h2 className="font-bold font-chicago text-lg mt-4 mb-2">Experiencia Profesional</h2>
             <div className="mb-3">
                 <div className="flex justify-between font-bold">
-                    <span>Tech Corp Inc.</span>
-                    <span>1999 - Presente</span>
+                    <span>Azul Estudio</span>
+                    <span>2020 - Presente</span>
                 </div>
-                <p className="text-xs ml-4">- Construyendo interfaces escalables con React</p>
-                <p className="text-xs ml-4">- Migración de sistemas legacy a web moderna</p>
+                <p className="text-xs ml-4">- Fundador y Director Creativo</p>
+                <p className="text-xs ml-4">- Desarrollo de identidades visuales y web apps</p>
             </div>
 
             <div className="mb-3">
                 <div className="flex justify-between font-bold">
-                    <span>Soluciones Web Ltd.</span>
-                    <span>1995 - 1999</span>
+                    <span>Agencia Digital Global</span>
+                    <span>2018 - 2020</span>
                 </div>
-                <p className="text-xs ml-4">- Maestro HTML/CSS</p>
-                <p className="text-xs ml-4">- Scripting en Perl CGI</p>
+                <p className="text-xs ml-4">- Desarrollador Frontend Senior</p>
+                <p className="text-xs ml-4">- Implementación de Design Systems</p>
             </div>
 
             <h2 className="font-bold font-chicago text-lg mt-4 mb-2">Educación</h2>
             <div>
                 <div className="flex justify-between font-bold">
-                    <span>Universidad de Ciencias</span>
-                    <span>1995</span>
+                    <span>Universidad Tecnológica</span>
+                    <span>2018</span>
                 </div>
-                <p className="text-xs ml-4">Lic. Ciencias de la Computación</p>
+                <p className="text-xs ml-4">Ingeniería de Software</p>
             </div>
        </div>
 

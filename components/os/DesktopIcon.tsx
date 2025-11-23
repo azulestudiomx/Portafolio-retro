@@ -1,7 +1,7 @@
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { IconData, WindowId } from '../../types';
-import { IconFolder, IconDisk, IconDoc, IconMail, IconPic, IconBrush, IconCD } from '../icons/OsIcons';
+import { IconFolder, IconDisk, IconDoc, IconMail, IconPic, IconBrush, IconCD, IconTerminal, IconSettings } from '../icons/OsIcons';
 
 interface DesktopIconProps {
   icon: IconData;
@@ -24,6 +24,8 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({ icon, onOpen, onMove }
       case 'pic': return <IconPic className="w-10 h-10" />;
       case 'paint': return <IconBrush className="w-10 h-10" />;
       case 'music': return <IconCD className="w-10 h-10" />;
+      case 'terminal': return <IconTerminal className="w-10 h-10" />;
+      case 'settings': return <IconSettings className="w-10 h-10" />;
       default: return <IconFolder className="w-10 h-10" />;
     }
   };

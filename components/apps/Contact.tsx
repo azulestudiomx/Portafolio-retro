@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { IconMail } from '../icons/OsIcons';
 
@@ -18,9 +17,9 @@ export const Contact: React.FC = () => {
         </div>
         
         <div className="z-10 flex flex-col justify-center">
-            <h2 className="text-xl font-bold leading-none mb-1">Juan Pérez</h2>
-            <p className="text-xs font-mono text-gray-600 mb-0.5">Full Stack Developer</p>
-            <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Macintosh User</p>
+            <h2 className="text-xl font-bold leading-none mb-1">Carlos Caceres</h2>
+            <p className="text-xs font-mono text-gray-600 mb-0.5">Azul Estudio</p>
+            <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Fundador & Developer</p>
         </div>
       </div>
 

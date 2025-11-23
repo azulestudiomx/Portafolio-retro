@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ProjectData } from '../../types';
 import { IconFolder } from '../icons/OsIcons';
@@ -8,51 +7,44 @@ interface ProjectsProps {
     onSetLoading?: (loading: boolean) => void;
 }
 
+// --- EDITA ESTA LISTA PARA CAMBIAR TUS PROYECTOS ---
+// Puedes agregar más objetos aquí. Asegúrate de que el 'id' sea único.
 const PROJECTS: ProjectData[] = [
   { 
     id: 1, 
-    name: "Portafolio Retro", 
+    name: "Azul Estudio Web", 
     date: "28 Oct, 2023", 
-    stack: "React, Tailwind", 
-    description: "Un clon de Mac OS 8 construido con tecnologías web modernas. Cuenta con sistema de ventanas y drag & drop.", 
+    stack: "React, Tailwind, Retro", 
+    description: "El sitio oficial de Azul Estudio. Un viaje nostálgico al Mac OS 8 con tecnología moderna.", 
     imageUrl: "https://picsum.photos/seed/retro/300/200",
-    url: "https://es.wikipedia.org/wiki/Mac_OS_8" 
+    url: "https://azulestudio.com" 
   },
   { 
     id: 2, 
-    name: "API E-Commerce", 
+    name: "E-Commerce Cliente", 
     date: "15 Sep, 2023", 
-    stack: "Node.js, Express", 
-    description: "Backend escalable para tiendas online con autenticación JWT y pagos con Stripe.",
+    stack: "Node.js, Stripe", 
+    description: "Plataforma de ventas personalizada con pasarela de pagos y gestión de inventario.",
     imageUrl: "https://picsum.photos/seed/api/300/200",
     url: "https://example.com"
   },
   { 
     id: 3, 
-    name: "Chat Bot IA", 
-    date: "02 Ago, 2023", 
-    stack: "Python, OpenAI", 
-    description: "Asistente inteligente de servicio al cliente capaz de responder preguntas frecuentes.",
-    imageUrl: "https://picsum.photos/seed/bot/300/200",
-    url: "https://es.wikipedia.org/wiki/Inteligencia_artificial"
+    name: "Dashboard Analítica", 
+    date: "10 Jul, 2023", 
+    stack: "D3.js, Vue", 
+    description: "Visualización de datos complejos para fintech, enfocado en rendimiento y UX.",
+    imageUrl: "https://picsum.photos/seed/data/300/200",
+    url: "https://example.com"
   },
   { 
     id: 4, 
-    name: "Panel de Datos", 
-    date: "10 Jul, 2023", 
-    stack: "D3.js, Vue", 
-    description: "Dashboard de análisis en tiempo real para visualización de métricas financieras.",
-    imageUrl: "https://picsum.photos/seed/data/300/200",
-    url: "https://es.wikipedia.org/wiki/Visualizaci%C3%B3n_de_datos"
-  },
-  { 
-    id: 5, 
-    name: "Juego Móvil", 
+    name: "App Móvil Salud", 
     date: "20 Jun, 2023", 
-    stack: "Unity, C#", 
-    description: "Plataformas estilo pixel art para iOS con físicas personalizadas.",
+    stack: "React Native", 
+    description: "Aplicación de seguimiento de hábitos saludables con integración a wearables.",
     imageUrl: "https://picsum.photos/seed/game/300/200",
-    url: "https://es.wikipedia.org/wiki/Unity_(motor_de_juego)"
+    url: "https://example.com"
   },
 ];
 
@@ -73,16 +65,16 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenBrowser, onSetLoading 
     <div className="h-full flex flex-col">
       {/* Finder Top Info */}
       <div className="flex items-center text-xs mb-2 text-gray-600 border-b border-gray-300 pb-1 font-chicago bg-[#d4d4d4] px-2 sticky top-0">
-        <span>{PROJECTS.length} ítems</span>
+        <span>{PROJECTS.length} proyectos</span>
         <span className="mx-2">|</span>
-        <span>250 MB disponibles</span>
+        <span>Azul Estudio - Portfolio</span>
       </div>
 
       {/* List Header */}
       <div className="flex text-xs font-bold border-b border-black bg-[#e0e0e0] py-1 font-chicago select-none">
         <div className="w-1/2 pl-2 border-r border-gray-400 text-black">Nombre</div>
-        <div className="w-1/4 pl-2 border-r border-gray-400 text-black">Fecha Modificación</div>
-        <div className="w-1/4 pl-2 text-black">Tipo</div>
+        <div className="w-1/4 pl-2 border-r border-gray-400 text-black">Fecha</div>
+        <div className="w-1/4 pl-2 text-black">Tecnología</div>
       </div>
 
       {/* List Body */}
@@ -141,7 +133,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenBrowser, onSetLoading 
                         </h4>
                         
                         <div className="mb-2">
-                            <span className="text-[10px] uppercase font-bold text-gray-600 block">Tecnología</span>
+                            <span className="text-[10px] uppercase font-bold text-gray-600 block">Stack Tecnológico</span>
                             <span className="text-xs font-mono">{selectedProject.stack}</span>
                         </div>
                         
@@ -159,7 +151,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenBrowser, onSetLoading 
                                 }}
                                 className="bg-[#ccc] border-2 border-[#808080] border-t-white border-l-white px-3 py-1 text-xs font-chicago active:border-t-[#808080] active:border-l-[#808080] active:border-b-white active:border-r-white active:bg-[#bbb] flex items-center ml-auto shadow-sm hover:bg-[#d0d0d0]"
                             >
-                                <span className="mr-1">🌐</span> Ver Sitio Web
+                                <span className="mr-1">🌐</span> Ver Proyecto
                             </button>
                         </div>
                     </div>

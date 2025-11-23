@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { IconMacFace } from '../icons/OsIcons';
 import { playStartupSound } from '../../utils/audio';
@@ -46,13 +45,13 @@ export const BootScreen: React.FC<BootScreenProps> = ({ onLoginComplete }) => {
           <div className="flex items-center space-x-4 mb-8 scale-125">
               <IconMacFace className="w-16 h-16" />
               <div className="flex flex-col">
-                  <span className="text-4xl font-bold tracking-tighter">Mac OS 8</span>
-                  <span className="text-xs tracking-widest text-gray-500 font-bold uppercase text-right">Platinum Edition</span>
+                  <span className="text-4xl font-bold tracking-tighter">Azul Estudio</span>
+                  <span className="text-xs tracking-widest text-gray-500 font-bold uppercase text-right">System 8.0</span>
               </div>
           </div>
 
           <div className="text-sm font-bold mb-2 w-full text-left pl-6">
-              Iniciando Mac OS...
+              Cargando escritorio...
           </div>
 
           {/* Progress Bar Container */}
@@ -67,7 +66,7 @@ export const BootScreen: React.FC<BootScreenProps> = ({ onLoginComplete }) => {
           </div>
       </div>
       <div className="mt-4 text-gray-600 text-xs font-bold">
-          © 1983-1997 Apple Computer, Inc.
+          © 2023 Azul Estudio - Carlos Caceres
       </div>
     </div>
   );
