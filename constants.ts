@@ -1,8 +1,23 @@
 
 import { IconData, WindowState } from './types';
 
+// Dimensions for the About window to calculate centering
+const ABOUT_WIDTH = 600;
+const ABOUT_HEIGHT = 450;
+
 export const INITIAL_WINDOWS: WindowState[] = [
-    { id: 'about', title: 'Sobre Mí', isOpen: true, zIndex: 1, position: { x: 50, y: 50 }, size: { width: 500, height: 420 } },
+    { 
+        id: 'about', 
+        title: 'Sobre Mí', 
+        isOpen: true, 
+        zIndex: 1, 
+        // Dynamic centering logic
+        position: { 
+            x: Math.max(0, (window.innerWidth - ABOUT_WIDTH) / 2), 
+            y: Math.max(0, (window.innerHeight - ABOUT_HEIGHT) / 2) 
+        }, 
+        size: { width: ABOUT_WIDTH, height: ABOUT_HEIGHT } 
+    },
     { id: 'projects', title: 'Proyectos', isOpen: false, zIndex: 0, position: { x: 80, y: 60 }, size: { width: 720, height: 480 } },
     { id: 'contact', title: 'Contacto', isOpen: false, zIndex: 0, position: { x: 150, y: 150 }, size: { width: 420, height: 450 } },
     { id: 'resume', title: 'Curriculum.txt', isOpen: false, zIndex: 0, position: { x: 200, y: 60 }, size: { width: 450, height: 500 } },
@@ -11,6 +26,7 @@ export const INITIAL_WINDOWS: WindowState[] = [
     { id: 'music', title: 'Audio Player', isOpen: false, zIndex: 0, position: { x: 400, y: 200 }, size: { width: 350, height: 200 } },
     { id: 'terminal', title: 'Terminal', isOpen: false, zIndex: 0, position: { x: 100, y: 100 }, size: { width: 500, height: 350 } },
     { id: 'appearance', title: 'Apariencia', isOpen: false, zIndex: 0, position: { x: 120, y: 120 }, size: { width: 300, height: 400 } },
+    { id: 'ai', title: 'Asistente', isOpen: false, zIndex: 0, position: { x: 500, y: 100 }, size: { width: 350, height: 450 } },
 ];
 
 // Initial layout resembling a column on the left
@@ -21,6 +37,7 @@ export const DESKTOP_ICONS: IconData[] = [
     { id: 'contact', title: 'Contacto', iconType: 'mail', position: { x: 20, y: 310 } },
     { id: 'gallery', title: 'MacPaint', iconType: 'paint', position: { x: 20, y: 400 } },
     { id: 'appearance', title: 'Apariencia', iconType: 'settings', position: { x: 20, y: 490 } },
+    { id: 'ai', title: 'Asistente IA', iconType: 'assistant', position: { x: 20, y: 580 } },
     { id: 'terminal', title: 'Terminal', iconType: 'terminal', position: { x: 110, y: 40 } },
     { id: 'music', title: 'CD Player', iconType: 'music', position: { x: window.innerWidth - 100, y: window.innerHeight - 100 } },
 ];
