@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { IconAzulLogo } from '../icons/OsIcons';
-import GridScan from '../bits/GridScan';
+import PixelBlast from '../bits/PixelBlast';
 import { playStartupSound } from '../../utils/audio';
 
 interface BootScreenProps {
@@ -36,19 +36,26 @@ export const BootScreen: React.FC<BootScreenProps> = ({ onLoginComplete }) => {
   return (
     <div className="w-screen h-screen bg-black flex flex-col items-center justify-center cursor-watch font-chicago select-none relative overflow-hidden">
 
-      {/* Background Grid Effect */}
+      {/* Background PixelBlast Effect */}
       <div className="absolute inset-0 z-0">
-        <GridScan
-          sensitivity={0.55}
-          lineThickness={1}
-          linesColor="#392e4e"
-          gridScale={0.1}
-          scanColor="#FF9FFC"
-          scanOpacity={0.4}
-          enablePost
-          bloomIntensity={0.6}
-          chromaticAberration={0.002}
-          noiseIntensity={0.01}
+        <PixelBlast
+          variant="circle"
+          pixelSize={6}
+          color="#B19EEF"
+          patternScale={3}
+          patternDensity={1.2}
+          pixelSizeJitter={0.5}
+          enableRipples
+          rippleSpeed={0.4}
+          rippleThickness={0.12}
+          rippleIntensityScale={1.5}
+          liquid
+          liquidStrength={0.12}
+          liquidRadius={1.2}
+          liquidWobbleSpeed={5}
+          speed={0.6}
+          edgeFade={0.25}
+          transparent
         />
       </div>
 
