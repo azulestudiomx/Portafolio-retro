@@ -70,7 +70,7 @@ export const PROJECTS: ProjectData[] = [
         date: "10 Jul, 2024",
         stack: "php, mysql, bootstrap",
         description: "Gestión de citas médicas y expedientes electrónica.",
-        imageUrl: "https://picsum.photos/seed/data/300/200", // <--- CAMBIA ESTO CON TU URL DE CLOUDINARY
+        imageUrl: "https://res.cloudinary.com/dt96yonq2/image/upload/v1766086594/expedi_hnczg0.jpg", // <--- CAMBIA ESTO CON TU URL DE CLOUDINARY
         url: "https://joaquinbenitezlandero.cloud/version2/expedientes-medicos"
     },
     {
