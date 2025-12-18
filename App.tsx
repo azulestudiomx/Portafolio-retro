@@ -10,11 +10,10 @@ import { Contact } from './components/apps/Contact';
 import { Resume } from './components/apps/Resume';
 import { Gallery } from './components/apps/Gallery';
 import { Browser } from './components/apps/Browser';
-import { MusicPlayer } from './components/apps/MusicPlayer';
 import { Terminal } from './components/apps/Terminal';
 import { Appearance } from './components/apps/Appearance';
 import { AiAssistant } from './components/apps/AiAssistant';
-import { LaserDemo } from './components/apps/LaserDemo';
+
 import { BootScreen } from './components/os/BootScreen';
 import { Screensaver } from './components/os/Screensaver';
 import { INITIAL_WINDOWS, DESKTOP_ICONS } from './constants';
@@ -214,7 +213,6 @@ const App: React.FC = () => {
       case 'contact': return <Contact />;
       case 'resume': return <Resume />;
       case 'gallery': return <Gallery onSetWallpaper={handleSetWallpaper} />;
-      case 'music': return <MusicPlayer />;
       case 'browser':
         return <Browser initialUrl={window.contentProps?.initialUrl} onSetLoading={setIsLoading} />;
       case 'terminal':
@@ -223,8 +221,7 @@ const App: React.FC = () => {
         return <Appearance onSetWallpaper={handleSetWallpaper} />;
       case 'ai':
         return <AiAssistant />;
-      case 'laser':
-        return <LaserDemo />;
+
       default: return null;
     }
   };

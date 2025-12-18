@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { IconAzulLogo } from '../icons/OsIcons';
-import PixelBlast from '../bits/PixelBlast';
+import PrismaticBurst from '../bits/PrismaticBurst';
 import { playStartupSound } from '../../utils/audio';
 
 interface BootScreenProps {
@@ -36,26 +36,19 @@ export const BootScreen: React.FC<BootScreenProps> = ({ onLoginComplete }) => {
   return (
     <div className="w-screen h-screen bg-black flex flex-col items-center justify-center cursor-watch font-chicago select-none relative overflow-hidden">
 
-      {/* Background PixelBlast Effect */}
+      {/* Background PrismaticBurst Effect */}
       <div className="absolute inset-0 z-0">
-        <PixelBlast
-          variant="circle"
-          pixelSize={6}
-          color="#B19EEF"
-          patternScale={3}
-          patternDensity={1.2}
-          pixelSizeJitter={0.5}
-          enableRipples
-          rippleSpeed={0.4}
-          rippleThickness={0.12}
-          rippleIntensityScale={1.5}
-          liquid
-          liquidStrength={0.12}
-          liquidRadius={1.2}
-          liquidWobbleSpeed={5}
-          speed={0.6}
-          edgeFade={0.25}
-          transparent
+        <PrismaticBurst
+          animationType="rotate3d"
+          intensity={2}
+          speed={0.5}
+          distort={1.0}
+          paused={false}
+          offset={{ x: 0, y: 0 }}
+          hoverDampness={0.25}
+          rayCount={24}
+          mixBlendMode="lighten"
+          colors={['#ff007a', '#4d3dff', '#ffffff']}
         />
       </div>
 

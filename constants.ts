@@ -23,11 +23,7 @@ export const INITIAL_WINDOWS: WindowState[] = [
     { id: 'resume', title: 'Curriculum.txt', isOpen: false, zIndex: 0, position: { x: 200, y: 60 }, size: { width: 450, height: 500 } },
     { id: 'gallery', title: 'MacPaint', isOpen: false, zIndex: 0, position: { x: 300, y: 100 }, size: { width: 600, height: 450 } },
     { id: 'browser', title: 'Netscape Navigator', isOpen: false, zIndex: 0, position: { x: 60, y: 60 }, size: { width: 850, height: 600 } },
-    { id: 'music', title: 'Audio Player', isOpen: false, zIndex: 0, position: { x: 400, y: 200 }, size: { width: 350, height: 200 } },
-    { id: 'terminal', title: 'Terminal', isOpen: false, zIndex: 0, position: { x: 100, y: 100 }, size: { width: 500, height: 350 } },
-    { id: 'appearance', title: 'Apariencia', isOpen: false, zIndex: 0, position: { x: 120, y: 120 }, size: { width: 300, height: 400 } },
-    { id: 'ai', title: 'Asistente', isOpen: false, zIndex: 0, position: { x: 500, y: 100 }, size: { width: 350, height: 450 } },
-    { id: 'laser', title: 'Laser Flow', isOpen: false, zIndex: 0, position: { x: 100, y: 100 }, size: { width: 800, height: 600 } },
+
 ];
 
 // Initial layout resembling a column on the left
@@ -40,8 +36,6 @@ export const DESKTOP_ICONS: IconData[] = [
     { id: 'appearance', title: 'Apariencia', iconType: 'settings', position: { x: 20, y: 490 } },
     { id: 'ai', title: 'Asistente IA', iconType: 'assistant', position: { x: 20, y: 580 } },
     { id: 'terminal', title: 'Terminal', iconType: 'terminal', position: { x: 110, y: 40 } },
-    { id: 'music', title: 'CD Player', iconType: 'music', position: { x: window.innerWidth - 100, y: window.innerHeight - 100 } },
-    { id: 'laser', title: 'Laser Demo', iconType: 'pic', position: { x: 200, y: 310 } },
 ];
 
 // --- EDITA ESTA LISTA PARA CAMBIAR TUS PROYECTOS ---
