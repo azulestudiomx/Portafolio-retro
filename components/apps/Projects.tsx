@@ -48,7 +48,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenBrowser, onSetLoading 
                                 className={`cursor-pointer select-none ${selectedId === project.id ? 'bg-black text-white' : 'text-black hover:bg-gray-200'}`}
                                 onClick={() => handleSelect(project.id)}
                                 onDoubleClick={() => {
-                                    if (project.url) onOpenBrowser(project.url, `Netscape - ${project.name}`);
+                                    if (project.url) window.open(project.url, '_blank');
                                 }}
                             >
                                 <td className="w-1/2 py-1 pl-1 flex items-center">
