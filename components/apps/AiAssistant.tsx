@@ -47,10 +47,21 @@ export const AiAssistant: React.FC = () => {
         setInput('');
         setIsLoading(true);
 
+        // Check for API Key
+        const apiKey = process.env.API_KEY;
+        if (!apiKey) {
+            setMessages(prev => [...prev, {
+                role: 'model',
+                text: "Error: Protocolo de seguridad. Falta la llave API 'GEMINI_API_KEY'. Por favor configúrela en el archivo .env."
+            }]);
+            setIsLoading(false);
+            return;
+        }
+
         try {
-            const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            const ai = new GoogleGenAI({ apiKey });
             const response = await ai.models.generateContent({
-                model: 'gemini-2.5-flash',
+                model: 'gemini-1.5-flash',
                 contents: userMsg,
                 config: {
                     systemInstruction: SYSTEM_PROMPT,
@@ -59,7 +70,8 @@ export const AiAssistant: React.FC = () => {
 
             setMessages(prev => [...prev, { role: 'model', text: response.text || "Error de lectura en disco." }]);
         } catch (error) {
-            setMessages(prev => [...prev, { role: 'model', text: "Error de conexión. Verifique su módem." }]);
+            console.error("AI Assistant Error:", error);
+            setMessages(prev => [...prev, { role: 'model', text: "Error de conexión. Verifique su módem o la validez de su API Key." }]);
         } finally {
             setIsLoading(false);
         }
@@ -80,7 +92,7 @@ export const AiAssistant: React.FC = () => {
             <div className="flex-1 overflow-y-auto p-2 space-y-3 bg-white" ref={scrollRef}>
                 {messages.map((msg, i) => (
                     <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                        <div 
+                        <div
                             className={`max-w-[80%] p-2 rounded border border-black shadow-[2px_2px_0_rgba(0,0,0,0.1)] 
                             ${msg.role === 'user' ? 'bg-[#e0e0e0] text-right' : 'bg-[#e6f7ff] text-left'}`}
                         >
@@ -99,14 +111,14 @@ export const AiAssistant: React.FC = () => {
 
             {/* Input Area */}
             <form onSubmit={handleSend} className="p-2 border-t border-gray-400 bg-[#f0f0f0] flex space-x-2">
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Pregunta sobre Carlos..."
                     className="flex-1 border border-gray-500 p-1 text-sm outline-none focus:border-blue-500 shadow-inner"
                 />
-                <button 
+                <button
                     type="submit"
                     disabled={isLoading}
                     className="px-3 border border-black bg-white shadow-[1px_1px_0_black] active:translate-y-px active:shadow-none font-bold"
