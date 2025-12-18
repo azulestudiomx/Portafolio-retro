@@ -48,7 +48,7 @@ export const DESKTOP_ICONS: IconData[] = [
 export const PROJECTS: ProjectData[] = [
     {
         id: 1,
-        name: "VETORA",
+        name: "VETORA - Sistema Integral de Gestión Veterinaria",
         date: "28 Oct, 2025",
         stack: "React, Tailwind, Expedientes",
         description: "Sistema Integral de Gestión Veterinaria.",
@@ -61,8 +61,8 @@ export const PROJECTS: ProjectData[] = [
         date: "15 Sep, 2025",
         stack: "Node.js, MongoDB, Express, React",
         description: "Sistema de gestión para la empresa Emplacados Campeche.",
-        imageUrl: "https://picsum.photos/seed/api/300/200", // <--- CAMBIA ESTO CON TU URL DE CLOUDINARY
-        url: "https://sistema-emplacados-campeche.onrender.com/"
+        imageUrl: "https://res.cloudinary.com/dt96yonq2/image/upload/v1766084934/siecamp_y4e5ny.jpg", // <--- CAMBIA ESTO CON TU URL DE CLOUDINARY
+        url: "https://siecamp.azulestudiomx.cloud/"
     },
     {
         id: 3,
