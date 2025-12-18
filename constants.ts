@@ -22,7 +22,7 @@ export const INITIAL_WINDOWS: WindowState[] = [
     { id: 'contact', title: 'Contacto', isOpen: false, zIndex: 0, position: { x: 150, y: 150 }, size: { width: 420, height: 450 } },
     { id: 'resume', title: 'Curriculum.txt', isOpen: false, zIndex: 0, position: { x: 200, y: 60 }, size: { width: 450, height: 500 } },
     { id: 'gallery', title: 'MacPaint', isOpen: false, zIndex: 0, position: { x: 300, y: 100 }, size: { width: 600, height: 450 } },
-    { id: 'browser', title: 'Netscape Navigator', isOpen: false, zIndex: 0, position: { x: 60, y: 60 }, size: { width: 600, height: 450 } },
+    { id: 'browser', title: 'Netscape Navigator', isOpen: false, zIndex: 0, position: { x: 60, y: 60 }, size: { width: 850, height: 600 } },
     { id: 'music', title: 'Audio Player', isOpen: false, zIndex: 0, position: { x: 400, y: 200 }, size: { width: 350, height: 200 } },
     { id: 'terminal', title: 'Terminal', isOpen: false, zIndex: 0, position: { x: 100, y: 100 }, size: { width: 500, height: 350 } },
     { id: 'appearance', title: 'Apariencia', isOpen: false, zIndex: 0, position: { x: 120, y: 120 }, size: { width: 300, height: 400 } },

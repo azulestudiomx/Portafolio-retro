@@ -108,7 +108,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenBrowser, onSetLoading 
                             <div className="mt-3 text-right sticky bottom-0">
                                 <button
                                     onClick={() => {
-                                        if (selectedProject.url) onOpenBrowser(selectedProject.url, `Netscape - ${selectedProject.name}`);
+                                        if (selectedProject.url) window.open(selectedProject.url, '_blank');
                                     }}
                                     className="bg-[#ccc] border-2 border-[#808080] border-t-white border-l-white px-3 py-1 text-xs font-chicago active:border-t-[#808080] active:border-l-[#808080] active:border-b-white active:border-r-white active:bg-[#bbb] flex items-center ml-auto shadow-sm hover:bg-[#d0d0d0]"
                                 >
