@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ProjectData } from '../../types';
+import { PROJECTS } from '../../constants';
 import { IconFolder } from '../icons/OsIcons';
 
 interface ProjectsProps {
@@ -7,46 +8,6 @@ interface ProjectsProps {
     onSetLoading?: (loading: boolean) => void;
 }
 
-// --- EDITA ESTA LISTA PARA CAMBIAR TUS PROYECTOS ---
-// Puedes agregar más objetos aquí. Asegúrate de que el 'id' sea único.
-const PROJECTS: ProjectData[] = [
-    {
-        id: 1,
-        name: "Portafolio Azul Estudio Web",
-        date: "28 Oct, 2023",
-        stack: "React, Tailwind, Retro",
-        description: "El sitio oficial de Azul Estudio. Un viaje nostálgico al Mac OS 8 con tecnología moderna.",
-        imageUrl: "https://picsum.photos/seed/retro/300/200",
-        url: "https://portafolio-retro.onrender.com/"
-    },
-    {
-        id: 2,
-        name: "Sistema Emplacados Campeche",
-        date: "15 Sep, 2025",
-        stack: "Node.js, MongoDB, Express, React",
-        description: "Sistema de gestión para la empresa Emplacados Campeche.",
-        imageUrl: "https://picsum.photos/seed/api/300/200",
-        url: "https://sistema-emplacados-campeche.onrender.com/"
-    },
-    {
-        id: 3,
-        name: "Sistema de Gestión de Citas Médicas-Expedientes",
-        date: "10 Jul, 2024",
-        stack: "php, mysql, bootstrap",
-        description: "Gestión de citas médicas y expedientes electrónica.",
-        imageUrl: "https://picsum.photos/seed/data/300/200",
-        url: "https://joaquinbenitezlandero.cloud/version2/expedientes-medicos"
-    },
-    {
-        id: 4,
-        name: "Web Maquena",
-        date: "20 Jun, 2024",
-        stack: "Wordpress, Elementor",
-        description: "Web de la empresa Maquena Arquitectura.",
-        imageUrl: "https://picsum.photos/seed/game/300/200",
-        url: "https://maquena.com.mx"
-    },
-];
 
 export const Projects: React.FC<ProjectsProps> = ({ onOpenBrowser, onSetLoading }) => {
     const [selectedId, setSelectedId] = useState<number | null>(null);

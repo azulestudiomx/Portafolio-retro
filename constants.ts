@@ -1,22 +1,22 @@
 
-import { IconData, WindowState } from './types';
+import { IconData, WindowState, ProjectData } from './types';
 
 // Dimensions for the About window to calculate centering
 const ABOUT_WIDTH = 600;
 const ABOUT_HEIGHT = 450;
 
 export const INITIAL_WINDOWS: WindowState[] = [
-    { 
-        id: 'about', 
-        title: 'Sobre Mí', 
-        isOpen: true, 
-        zIndex: 1, 
+    {
+        id: 'about',
+        title: 'Sobre Mí',
+        isOpen: true,
+        zIndex: 1,
         // Dynamic centering logic
-        position: { 
-            x: Math.max(0, (window.innerWidth - ABOUT_WIDTH) / 2), 
-            y: Math.max(0, (window.innerHeight - ABOUT_HEIGHT) / 2) 
-        }, 
-        size: { width: ABOUT_WIDTH, height: ABOUT_HEIGHT } 
+        position: {
+            x: Math.max(0, (window.innerWidth - ABOUT_WIDTH) / 2),
+            y: Math.max(0, (window.innerHeight - ABOUT_HEIGHT) / 2)
+        },
+        size: { width: ABOUT_WIDTH, height: ABOUT_HEIGHT }
     },
     { id: 'projects', title: 'Proyectos', isOpen: false, zIndex: 0, position: { x: 80, y: 60 }, size: { width: 720, height: 480 } },
     { id: 'contact', title: 'Contacto', isOpen: false, zIndex: 0, position: { x: 150, y: 150 }, size: { width: 420, height: 450 } },
@@ -40,4 +40,46 @@ export const DESKTOP_ICONS: IconData[] = [
     { id: 'ai', title: 'Asistente IA', iconType: 'assistant', position: { x: 20, y: 580 } },
     { id: 'terminal', title: 'Terminal', iconType: 'terminal', position: { x: 110, y: 40 } },
     { id: 'music', title: 'CD Player', iconType: 'music', position: { x: window.innerWidth - 100, y: window.innerHeight - 100 } },
+];
+
+// --- EDITA ESTA LISTA PARA CAMBIAR TUS PROYECTOS ---
+// Puedes agregar más objetos aquí. Asegúrate de que el 'id' sea único.
+// Para usar tus propias imágenes, reemplaza 'imageUrl' con la URL de tu imagen en Cloudinary u otro servicio.
+export const PROJECTS: ProjectData[] = [
+    {
+        id: 1,
+        name: "VETORA",
+        date: "28 Oct, 2025",
+        stack: "React, Tailwind, Expedientes",
+        description: "Sistema Integral de Gestión Veterinaria.",
+        imageUrl: "https://res.cloudinary.com/dt96yonq2/image/upload/v1766068499/VETORA_kcmrto.jpg", // <--- CAMBIA ESTO CON TU URL DE CLOUDINARY
+        url: "https://vetora.azulestudiomx.cloud/"
+    },
+    {
+        id: 2,
+        name: "Sistema Emplacados Campeche",
+        date: "15 Sep, 2025",
+        stack: "Node.js, MongoDB, Express, React",
+        description: "Sistema de gestión para la empresa Emplacados Campeche.",
+        imageUrl: "https://picsum.photos/seed/api/300/200", // <--- CAMBIA ESTO CON TU URL DE CLOUDINARY
+        url: "https://sistema-emplacados-campeche.onrender.com/"
+    },
+    {
+        id: 3,
+        name: "Sistema de Gestión de Citas Médicas-Expedientes",
+        date: "10 Jul, 2024",
+        stack: "php, mysql, bootstrap",
+        description: "Gestión de citas médicas y expedientes electrónica.",
+        imageUrl: "https://picsum.photos/seed/data/300/200", // <--- CAMBIA ESTO CON TU URL DE CLOUDINARY
+        url: "https://joaquinbenitezlandero.cloud/version2/expedientes-medicos"
+    },
+    {
+        id: 4,
+        name: "Web Maquena",
+        date: "20 Jun, 2024",
+        stack: "Wordpress, Elementor",
+        description: "Web de la empresa Maquena Arquitectura.",
+        imageUrl: "https://picsum.photos/seed/game/300/200", // <--- CAMBIA ESTO CON TU URL DE CLOUDINARY
+        url: "https://maquena.com.mx"
+    },
 ];
