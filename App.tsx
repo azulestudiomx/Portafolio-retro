@@ -14,6 +14,7 @@ import { MusicPlayer } from './components/apps/MusicPlayer';
 import { Terminal } from './components/apps/Terminal';
 import { Appearance } from './components/apps/Appearance';
 import { AiAssistant } from './components/apps/AiAssistant';
+import { LaserDemo } from './components/apps/LaserDemo';
 import { BootScreen } from './components/os/BootScreen';
 import { Screensaver } from './components/os/Screensaver';
 import { INITIAL_WINDOWS, DESKTOP_ICONS } from './constants';
@@ -222,6 +223,8 @@ const App: React.FC = () => {
         return <Appearance onSetWallpaper={handleSetWallpaper} />;
       case 'ai':
         return <AiAssistant />;
+      case 'laser':
+        return <LaserDemo />;
       default: return null;
     }
   };

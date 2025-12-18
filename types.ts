@@ -1,5 +1,5 @@
 
-export type WindowId = 'about' | 'projects' | 'contact' | 'resume' | 'gallery' | 'browser' | 'music' | 'terminal' | 'appearance' | 'ai';
+export type WindowId = 'about' | 'projects' | 'contact' | 'resume' | 'gallery' | 'browser' | 'music' | 'terminal' | 'appearance' | 'ai' | 'laser';
 
 export interface WindowState {
   id: WindowId;
