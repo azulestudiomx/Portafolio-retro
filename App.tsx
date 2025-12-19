@@ -22,7 +22,7 @@ import { playClickSound } from './utils/audio';
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isPoweredOff, setIsPoweredOff] = useState(false); // State for simulated shutdown
+  const [isPoweredOff, setIsPoweredOff] = useState(true); // Start powered off as per user request
   const [windows, setWindows] = useState<WindowState[]>(INITIAL_WINDOWS);
   const [icons, setIcons] = useState<IconData[]>(DESKTOP_ICONS);
   const [activeZIndex, setActiveZIndex] = useState(10);
