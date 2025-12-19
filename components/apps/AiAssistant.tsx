@@ -48,11 +48,11 @@ export const AiAssistant: React.FC = () => {
         setIsLoading(true);
 
         // Check for API Key
-        const apiKey = process.env.API_KEY;
+        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
         if (!apiKey) {
             setMessages(prev => [...prev, {
                 role: 'model',
-                text: "Error: Protocolo de seguridad. Falta la llave API 'GEMINI_API_KEY'. Por favor configúrela en el archivo .env."
+                text: "Error: Protocolo de seguridad. Falta la llave API 'VITE_GEMINI_API_KEY' en el archivo .env."
             }]);
             setIsLoading(false);
             return;
