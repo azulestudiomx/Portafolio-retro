@@ -24,8 +24,8 @@ export const INITIAL_WINDOWS: WindowState[] = [
     { id: 'gallery', title: 'MacPaint', isOpen: false, zIndex: 0, position: { x: 300, y: 100 }, size: { width: 600, height: 450 } },
     { id: 'browser', title: 'Netscape Navigator', isOpen: false, zIndex: 0, position: { x: 60, y: 60 }, size: { width: 850, height: 600 } },
     { id: 'appearance', title: 'Apariencia', isOpen: false, zIndex: 0, position: { x: 100, y: 100 }, size: { width: 400, height: 350 } },
-    { id: 'ai', title: 'Asistente IA', isOpen: false, zIndex: 0, position: { x: 120, y: 80 }, size: { width: 380, height: 500 } },
     { id: 'terminal', title: 'Terminal', isOpen: false, zIndex: 0, position: { x: 150, y: 150 }, size: { width: 600, height: 400 } },
+    { id: 'stickies', title: 'Notas', isOpen: false, zIndex: 0, position: { x: 300, y: 50 }, size: { width: 350, height: 400 } },
 
 ];
 
@@ -37,7 +37,7 @@ export const DESKTOP_ICONS: IconData[] = [
     { id: 'contact', title: 'Contacto', iconType: 'mail', position: { x: 20, y: 310 } },
     { id: 'gallery', title: 'MacPaint', iconType: 'paint', position: { x: 20, y: 400 } },
     { id: 'appearance', title: 'Apariencia', iconType: 'settings', position: { x: 20, y: 490 } },
-    { id: 'ai', title: 'Asistente IA', iconType: 'assistant', position: { x: 20, y: 580 } },
+    { id: 'stickies', title: 'Notas', iconType: 'stickies', position: { x: 20, y: 580 } },
     { id: 'terminal', title: 'Terminal', iconType: 'terminal', position: { x: 110, y: 40 } },
 ];
 

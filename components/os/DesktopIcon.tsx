@@ -1,7 +1,7 @@
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { IconData, WindowId } from '../../types';
-import { IconFolder, IconDisk, IconDoc, IconMail, IconPic, IconBrush, IconCD, IconTerminal, IconSettings, IconMagic } from '../icons/OsIcons';
+import { IconFolder, IconDisk, IconDoc, IconMail, IconPic, IconBrush, IconCD, IconTerminal, IconSettings, IconMagic, IconNote } from '../icons/OsIcons';
 
 interface DesktopIconProps {
   icon: IconData;
@@ -26,55 +26,55 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({ icon, onOpen, onMove }
       case 'music': return <IconCD className="w-10 h-10" />;
       case 'terminal': return <IconTerminal className="w-10 h-10" />;
       case 'settings': return <IconSettings className="w-10 h-10" />;
-      case 'assistant': return <IconMagic className="w-10 h-10" />;
+      case 'stickies': return <IconNote className="w-10 h-10" />;
       default: return <IconFolder className="w-10 h-10" />;
     }
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
-      e.stopPropagation();
-      setIsSelected(true);
-      isDragging.current = true;
-      dragStartPos.current = { x: e.clientX, y: e.clientY };
-      dragOffset.current = {
-          x: e.clientX - icon.position.x,
-          y: e.clientY - icon.position.y
-      };
+    e.stopPropagation();
+    setIsSelected(true);
+    isDragging.current = true;
+    dragStartPos.current = { x: e.clientX, y: e.clientY };
+    dragOffset.current = {
+      x: e.clientX - icon.position.x,
+      y: e.clientY - icon.position.y
+    };
   };
 
   const handleGlobalMouseMove = useCallback((e: MouseEvent) => {
-      if (isDragging.current) {
-          const newX = e.clientX - dragOffset.current.x;
-          const newY = e.clientY - dragOffset.current.y;
-          onMove(icon.id, newX, newY);
-      }
+    if (isDragging.current) {
+      const newX = e.clientX - dragOffset.current.x;
+      const newY = e.clientY - dragOffset.current.y;
+      onMove(icon.id, newX, newY);
+    }
   }, [icon.id, onMove]);
 
   const handleGlobalMouseUp = useCallback((e: MouseEvent) => {
-      if(isDragging.current) {
-          isDragging.current = false;
-      }
+    if (isDragging.current) {
+      isDragging.current = false;
+    }
   }, []);
 
   // Handle outside click to deselect
   useEffect(() => {
-      const handleOutsideClick = () => setIsSelected(false);
-      window.addEventListener('mousedown', handleOutsideClick);
-      return () => window.removeEventListener('mousedown', handleOutsideClick);
+    const handleOutsideClick = () => setIsSelected(false);
+    window.addEventListener('mousedown', handleOutsideClick);
+    return () => window.removeEventListener('mousedown', handleOutsideClick);
   }, []);
 
   useEffect(() => {
-      document.addEventListener('mousemove', handleGlobalMouseMove);
-      document.addEventListener('mouseup', handleGlobalMouseUp);
-      return () => {
-          document.removeEventListener('mousemove', handleGlobalMouseMove);
-          document.removeEventListener('mouseup', handleGlobalMouseUp);
-      };
+    document.addEventListener('mousemove', handleGlobalMouseMove);
+    document.addEventListener('mouseup', handleGlobalMouseUp);
+    return () => {
+      document.removeEventListener('mousemove', handleGlobalMouseMove);
+      document.removeEventListener('mouseup', handleGlobalMouseUp);
+    };
   }, [handleGlobalMouseMove, handleGlobalMouseUp]);
 
   const handleDoubleClick = (e: React.MouseEvent) => {
-      e.stopPropagation();
-      onOpen(icon.id);
+    e.stopPropagation();
+    onOpen(icon.id);
   };
 
   return (
@@ -85,8 +85,8 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({ icon, onOpen, onMove }
       onDoubleClick={handleDoubleClick}
     >
       <div className="mb-1 relative">
-         {isSelected && <div className="absolute inset-0 bg-black opacity-20 rounded-sm pointer-events-none mix-blend-multiply" />}
-         {getIcon()}
+        {isSelected && <div className="absolute inset-0 bg-black opacity-20 rounded-sm pointer-events-none mix-blend-multiply" />}
+        {getIcon()}
       </div>
       <div className={`border border-dotted px-1 ${isSelected ? 'bg-black border-black' : 'bg-white border-white group-hover:bg-black group-hover:border-black'}`}>
         <span className={`text-xs font-chicago font-bold ${isSelected ? 'text-white' : 'text-black group-hover:text-white'}`}>
