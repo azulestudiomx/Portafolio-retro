@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { IconMagic } from '../icons/OsIcons';
 
 interface Message {
@@ -59,16 +59,17 @@ export const AiAssistant: React.FC = () => {
         }
 
         try {
-            const ai = new GoogleGenAI({ apiKey });
-            const response = await ai.models.generateContent({
-                model: 'gemini-1.5-flash',
-                contents: userMsg,
-                config: {
-                    systemInstruction: SYSTEM_PROMPT,
-                }
+            const genAI = new GoogleGenerativeAI(apiKey);
+            const model = genAI.getGenerativeModel({
+                model: "gemini-1.5-flash",
+                systemInstruction: SYSTEM_PROMPT
             });
 
-            setMessages(prev => [...prev, { role: 'model', text: response.text || "Error de lectura en disco." }]);
+            const result = await model.generateContent(userMsg);
+            const response = result.response;
+            const text = response.text();
+
+            setMessages(prev => [...prev, { role: 'model', text: text || "Error de lectura en disco." }]);
         } catch (error) {
             console.error("AI Assistant Error:", error);
             setMessages(prev => [...prev, { role: 'model', text: "Error de conexión. Verifique su módem o la validez de su API Key." }]);
