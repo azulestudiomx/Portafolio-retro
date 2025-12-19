@@ -261,7 +261,7 @@ const App: React.FC = () => {
   return (
     <div
       className={`w-screen h-screen overflow-hidden relative font-sans ${isLoading ? 'cursor-watch' : 'cursor-default'} ${!wallpaper ? 'pattern-water' : ''}`}
-      style={wallpaper ? { backgroundImage: `url(${wallpaper})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' } : {}}
+      style={wallpaper ? { backgroundImage: `url(${wallpaper})`, backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' } : {}}
     >
       {/* SCREENSAVER OVERLAY */}
       {isScreensaverActive && <Screensaver onExit={() => setIsScreensaverActive(false)} />}

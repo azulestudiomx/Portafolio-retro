@@ -113,18 +113,18 @@ export const Resume: React.FC = () => {
 
                 <div className="mb-3">
                     <div className="flex justify-between font-bold">
-                        <span>Agencia Digital Global</span>
-                        <span>2018 - 2020</span>
+                        <span>Grupo Diseña</span>
+                        <span>2006 - 2012</span>
                     </div>
                     <p className="text-xs ml-4">- Desarrollador Frontend</p>
                     <p className="text-xs ml-4">- Implementación y Diseño</p>
                 </div>
 
-                <h2 className="font-bold font-chicago text-lg mt-4 mb-2">Educación</h2>
+                <h2 className="font-bold font-chicago text-lg mt-4 mb-2">SAFIN</h2>
                 <div>
                     <div className="flex justify-between font-bold">
-                        <span>Universidad Tecnológica</span>
-                        <span>2018</span>
+                        <span>Unidad de Producción y Diseño</span>
+                        <span>2013- Vigente</span>
                     </div>
                     <p className="text-xs ml-4">Diseño Gráfico</p>
                 </div>
